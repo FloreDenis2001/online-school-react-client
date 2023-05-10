@@ -1,7 +1,8 @@
-
 body{
 	margin:0px;
 }
+
+
 
 .login-container{
 	display: flex;
@@ -10,7 +11,7 @@ body{
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
 	position: relative;
-	background: url("/img/43540.jpg") no-repeat center/cover; 
+	background: url("../mockup-react/img/43540.jpg") no-repeat center/cover; 
 }
 
 
@@ -31,10 +32,10 @@ body{
 .main-login{
 	z-index: 1;
 	width: 350px;
-	height: 500px;
+	height: 600px;
 	background: red;
 	overflow: hidden;
-	background: url("/img/43540.jpg") no-repeat center/ cover;
+	background: url("../mockup-react/img/43540.jpg") no-repeat center/ cover;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
@@ -89,27 +90,33 @@ input{
 	background: rgb(0, 252, 96);;
 }
 .login{
-	height: 460px;
+	height: 650px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-180px);
+	transform: translateY(-130px);
 	transition: .8s ease-in-out;
 }
 .login label{
 	color:black;
-	transform: scale(.6);
+	transform: scale(.8);
+	margin: 20px 0px;
 }
 
 #chk:checked  ~ .login{
-	transform: translateY(-500px);
+	transform: translateY(-540px);
 }
 #chk:checked ~ .login label{
-	transform: scale(1);	
+	transform: scale(1.1);	
 }
 #chk:checked  .signup label{
 	transform: scale(.6);
 }
-
+.login form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
 header{
 	margin: 0;
 	padding: 1px;
@@ -130,7 +137,7 @@ header{
 }
 
 .logo-container p span {
-	color: rgb(0, 252, 96);
+	color: #00886b;
   }
 
 .nav-bar ul{
@@ -157,7 +164,7 @@ header{
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	width: 150px;
+	width: 200px;
 }
 
 .sign-in{
@@ -165,7 +172,7 @@ header{
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	width:100px;
+	width:150px;
 	color: white;
 	font-family: 'Jost',sans-serif;
 	font-weight:700;
@@ -174,20 +181,20 @@ header{
 }
 
 .nav-bar ul li a:hover{
-    color: rgb(0, 252, 96);
+    color: #00886b;
 }
 
 .auth-container a:hover{
-    color: rgb(0, 252, 96);
+    color: #00886b;
 }
 
-.sign-in i {
-    color: rgb(0, 252, 96);
-}
+
 
 .sign-in a{
 	text-decoration: none;
 	color: white;
+	width: 150px;
+	margin-left: 10px;
 }
 
 .go{
@@ -224,7 +231,7 @@ header{
 	justify-content: space-around;     
 }
 
-.book{
+.book,.course{
 	margin-bottom: 20px;
 	border-radius: 10px;
 	margin-left: 20px;
@@ -239,18 +246,22 @@ header{
 	border-bottom: 10px groove rgb(0, 252, 96);
 }
 
+.course{
+	border-bottom: 10px groove rgb(123, 219, 160);
+}
+
 
 footer{
 	padding: 1px;
 	padding-top: 20px;
 	text-align: center;
-	color: rgb(0, 252, 96);
+	color: #00886b;
 	background-color:rgb(27, 27, 27);
 
 }
 
 
-.book img{
+.book img,.course img{
 	width: 100%;
 	border-radius: 8px 8px 0px 0px;
 	height: 60%;

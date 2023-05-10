@@ -1,4 +1,5 @@
 import React from 'react'
+import { UserOutlined } from '@ant-design/icons'
 
 function Header() {
   return (
@@ -18,12 +19,11 @@ function Header() {
     </div>
 
     <div className="auth-container">
-        <div className="sign-in">
-            <i className="fa-sharp fa-solid fa-user"></i>
-            <a href="/login.html">Sing In</a>
+            <div className="sign-in">
+                <i className="fa-sharp fa-solid fa-user"></i>
+                <a href="/login.html"> <UserOutlined />  My Account</a>
+            </div>
         </div>
-        <i className="fa-solid fa-cart-shopping cart"></i>
-    </div>
 </header>
 
   )

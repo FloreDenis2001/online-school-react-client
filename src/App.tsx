@@ -5,21 +5,23 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Login from './components/Login';
 
 function App() {
   return (
     <div className="App">
-    <Header/>
+    
 
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Login/>} />
         <Route path="/home" element={<Home/>} />
         {/* <Route path="/add" element={<NewCar />} /> */}
         {/* <Route path="/update/:id" element={<UpdateCar />} /> */}
       </Routes>
     </BrowserRouter>
 
-    <Footer/>
+   
     </div>
   );
 }

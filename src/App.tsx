@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './components/Login';
+import LoginProvider from './context/LoginProvider';
 
 function App() {
   return (
@@ -13,12 +14,14 @@ function App() {
     
 
     <BrowserRouter>
+      <LoginProvider>
       <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="/home" element={<Home/>} />
         {/* <Route path="/add" element={<NewCar />} /> */}
         {/* <Route path="/update/:id" element={<UpdateCar />} /> */}
       </Routes>
+      </LoginProvider>
     </BrowserRouter>
 
    

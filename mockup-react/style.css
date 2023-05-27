@@ -14,7 +14,10 @@ body{
 	background: url("../mockup-react/img/43540.jpg") no-repeat center/cover; 
 }
 
-
+a{
+	text-decoration: none;
+	color: white;
+}
 
 .login-container::before{
 	backdrop-filter: blur(3px);

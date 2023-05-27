@@ -3,15 +3,18 @@ import React from "react";
 import Student from "../models/Student"
 import LoginResponse from "../dtos/LoginResponse";
 import LoginRequest from "../dtos/LoginRequest";
+import { ZhihuCircleFilled } from "@ant-design/icons";
+import RegisterResponse from "../dtos/RegisterResponse";
+import RegisterRequest from "../dtos/RegisterRequest";
 class StudentService {
 
 
     api<U, T>(path: string, method: string, body: U, token?: string): Promise<HttpResponse<T>>{
-        const url = "http://localhost:8080/api/v1" + path;
+        const url = "http://localhost:8080/api/v1/students" + path;
         const headers= new Headers();
-        headers.append(" Content-Type","application/json;charset=utf-8");
+        headers.append("Content-Type","application/json;charset=utf-8");
         if(token){
-            headers.append("Authentification",`Bearer${token}`)
+            headers.append("Authentification",`Bearer${token}`);
         }
 
         const options: RequestInit = {
@@ -24,10 +27,17 @@ class StudentService {
 
     logInn= async(loginRequest:LoginRequest): Promise<LoginResponse> => {
         const response=await this.api<LoginRequest,LoginResponse>("/login","POST",loginRequest);
+        console.log(response.json());
         return response.json();
     }
 
+    singUp = async(registerRequest:RegisterRequest) : Promise<RegisterResponse>=>{
+       const response=await  this.api<RegisterRequest,RegisterResponse>("/register","POST",registerRequest);
+       return response.json();
+    }
 
+
+   
 }
 
 export default StudentService;

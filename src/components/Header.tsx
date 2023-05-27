@@ -21,7 +21,7 @@ function Header() {
     <div className="auth-container">
             <div className="sign-in">
                 <i className="fa-sharp fa-solid fa-user"></i>
-                <a href="/login.html"> <UserOutlined />  My Account</a>
+                <a href="/"> <UserOutlined />  My Account</a>
             </div>
         </div>
 </header>

@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import LoginProvider from './context/LoginProvider';
+import SingUp from './components/SingUp';
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
       <LoginProvider>
       <Routes>
         <Route path="/" element={<Login/>} />
+        <Route path="/singup" element={<SingUp/>} />
         <Route path="/home" element={<Home/>} />
-        {/* <Route path="/add" element={<NewCar />} /> */}
-        {/* <Route path="/update/:id" element={<UpdateCar />} /> */}
+        {/* <Route path="/books/:id" element={<My Books />} /> */}
+        {/* <Route path="/courses/:id" element={<Courses />} /> */}
       </Routes>
       </LoginProvider>
     </BrowserRouter>

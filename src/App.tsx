@@ -8,8 +8,11 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import LoginProvider from './context/LoginProvider';
 import SingUp from './components/SingUp';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
+
+
   return (
     <div className="App">
     
@@ -19,7 +22,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="/singup" element={<SingUp/>} />
-        <Route path="/home" element={<Home/>} />
+        <PrivateRoute path="/home/:studentId"/>
+        {/* <PrivateRoute path="/home/:studentId" element={<Home/>} /> */}
         {/* <Route path="/books/:id" element={<My Books />} /> */}
         {/* <Route path="/courses/:id" element={<Courses />} /> */}
       </Routes>

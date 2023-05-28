@@ -9,28 +9,31 @@ import Login from './components/Login';
 import LoginProvider from './context/LoginProvider';
 import SingUp from './components/SingUp';
 import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 function App() {
 
 
   return (
     <div className="App">
-    
 
-    <BrowserRouter>
-      <LoginProvider>
-      <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="/singup" element={<SingUp/>} />
-        <PrivateRoute path="/home/:studentId"/>
-        {/* <PrivateRoute path="/home/:studentId" element={<Home/>} /> */}
-        {/* <Route path="/books/:id" element={<My Books />} /> */}
-        {/* <Route path="/courses/:id" element={<Courses />} /> */}
-      </Routes>
-      </LoginProvider>
-    </BrowserRouter>
 
-   
+      <BrowserRouter>
+        <LoginProvider>
+          <Routes>
+            <Route path="/" element={<PrivateRoute />}>
+              <Route path="home/:studentId" element={<Home />} />
+            </Route>
+
+            <Route path='/' element={<PublicRoute />}>
+              <Route path='login' element={<Login />} />
+              <Route path="singup" element={<SingUp />} />
+            </Route>
+          </Routes>
+        </LoginProvider>
+      </BrowserRouter>
+
+
     </div>
   );
 }

@@ -10,7 +10,7 @@ function Home() {
 
 <main>
         <div className="all-learnings">
-           
+           Denis
        </div>
     </main>
 

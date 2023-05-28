@@ -7,17 +7,16 @@ type Props = {
     children?: React.ReactNode;
 }
 
-
-const PrivateRoute: FC<Props> = ({ children }) => {
+const PublicRoute: FC<Props> = ({ children }) => {
     let { student, setStudent } = useContext(ContextLogin) as LoginContextType;
-    return student? ( 
+    return !student.id ? ( 
       <>
         {children} 
-        <Outlet /> 
+        <Outlet />
       </>
     ) : (
-      <Navigate to="/" replace /> 
+      <Navigate to="/" replace />
     );
   };
 
-export default PrivateRoute;
+  export default PublicRoute;

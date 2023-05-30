@@ -8,8 +8,7 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import LoginProvider from './context/LoginProvider';
 import SingUp from './components/SingUp';
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
+import PrivateRoutes from './components/PrivateRoutes';
 
 function App() {
 
@@ -21,14 +20,12 @@ function App() {
       <BrowserRouter>
         <LoginProvider>
           <Routes>
-            <Route path="/" element={<PrivateRoute />}>
-              <Route path="home/:studentId" element={<Home />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/home/:studentId" element={<Home/>}/>
+              <Route path="/singup" element={<SingUp />} />
             </Route>
-
-            <Route path='/' element={<PublicRoute />}>
-              <Route path='login' element={<Login />} />
-              <Route path="singup" element={<SingUp />} />
-            </Route>
+              <Route path='/login' element={<Login />} />
+             
           </Routes>
         </LoginProvider>
       </BrowserRouter>

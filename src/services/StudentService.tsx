@@ -27,7 +27,6 @@ class StudentService {
 
     logInn= async(loginRequest:LoginRequest): Promise<LoginResponse> => {
         const response=await this.api<LoginRequest,LoginResponse>("/login","POST",loginRequest);
-        console.log(response.json());
         return response.json();
     }
 

@@ -6,11 +6,11 @@ import LoginContextType from '../models/LoginContextType';
 
 
 const PrivateRoutes = () => {
-    let { student, setStudent } = useContext(ContextLogin) as LoginContextType;
+    let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
 
 
   return (
-    student.id!==0? <Outlet/> : <Navigate to='/login'/>
+    studentLogin.id!==0? <Outlet/> : <Navigate to='/login'/>
   )
 }
 

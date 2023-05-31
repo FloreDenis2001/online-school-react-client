@@ -9,6 +9,7 @@ import Login from './components/Login';
 import LoginProvider from './context/LoginProvider';
 import SingUp from './components/SingUp';
 import PrivateRoutes from './components/PrivateRoutes';
+import FormExample from './components/FormExample';
 
 function App() {
 
@@ -22,13 +23,13 @@ function App() {
           <Routes>
             <Route element={<PrivateRoutes />}>
               <Route path="/home/:studentId" element={<Home/>}/>
-              <Route path="/singup" element={<SingUp />} />
             </Route>
               <Route path='/login' element={<Login />} />
+              <Route path="/singup" element={<SingUp />} /> 
              
-          </Routes>
+         </Routes>
         </LoginProvider>
-      </BrowserRouter>
+      </BrowserRouter> 
 
 
     </div>

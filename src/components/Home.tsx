@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import { ContextLogin } from '../context/LoginProvider';
+import LoginContextType from '../models/LoginContextType';
 
-function Home() {
+const Home:React.FC= () => {
+
+  let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
   return (
-    <body>
+ <>
 
 <Header/>
 
@@ -16,7 +20,7 @@ function Home() {
 
 <Footer/>
 
-</body>
+</>
   )
 }
 

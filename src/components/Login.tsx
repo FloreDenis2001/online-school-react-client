@@ -3,42 +3,64 @@ import { ContextLogin } from '../context/LoginProvider'
 import LoginContextType from '../models/LoginContextType'
 import StudentService from '../services/StudentService';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { useForm } from 'react-hook-form';
+import StudentLogin from '../dtos/StudentLogin';
+import { eventNames } from 'process';
 
-
+type FormData={
+    name:string;
+    email:string;
+    password:string;
+}
 
 const Login: React.FC = () => {
-    let { student, setStudent } = useContext(ContextLogin) as LoginContextType;
+    let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
      let studentService=new StudentService();
-
-     let login = async () =>{
-        let rez = await studentService.logInn({email,password});
-    }
 
     let navigate = useNavigate();
 
     let goSingUp = (): void => {
         navigate("/singup");
     }
+
+    const onSubmit = async (data:FormData)=>{
+       console.log("Form submitted: ",data);
+       setEmail(data.email);
+       setPassword(data.password);
+       console.log(email);
+       console.log(password);
+       let rez = await studentService.logInn({email,password});
+       if(rez){
+       setStudent(rez as StudentLogin);
+       }else {
+        console.log("Nu este raspuns!");
+       }
+      
+    }
     
     return (
         <main className="login-container">
             <div className="main-login">
 
-                <div className="login">
-                    <div className='form'>
+                <div className="login">                         
+                      {/* todo erroare la primul fetch  */}
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <label htmlFor="chk" aria-hidden="true">Login</label>
-                        <input type="email" name="email" placeholder="Email" value={email} onChange={(e)=>{
-                            setEmail(e.target.value);
-                        }}/>
-                        <input type="password" name="pswd" placeholder="Password" value={password} onChange={(e)=>{
-                            setPassword(e.target.value);
-                        }}/>
-                        <button onClick={login}>Login</button>
+                        <input type="email" {...register('email',{required:true,pattern:/^\S+@\S+$/i})}/>
+                         {errors.email && <span>Please enter a valid email address</span>}
+                
+                        <input type="password" {...register('password',{required:true,minLength:6})}/>
+                        {errors.password && <span>Password must be at least 6 characters long</span>}
+
+                        <button  type='submit'>Login</button>
                         <button onClick={goSingUp}>Sing Up</button>
-                    </div>
+                    </form>
+
                 </div>
             </div>
         </main>
@@ -46,3 +68,5 @@ const Login: React.FC = () => {
 }
 
 export default Login
+
+

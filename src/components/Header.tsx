@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { UserOutlined } from '@ant-design/icons'
+import { ContextLogin } from '../context/LoginProvider';
+import LoginContextType from '../models/LoginContextType';
 
-function Header() {
+const Header:React.FC= () => {
+    let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
+    console.log(studentLogin);
   return (
     <header>
     <div className="logo-container">
@@ -21,7 +25,7 @@ function Header() {
     <div className="auth-container">
             <div className="sign-in">
                 <i className="fa-sharp fa-solid fa-user"></i>
-                <a href="/"> <UserOutlined />  My Account</a>
+                <a href="/"> <UserOutlined /></a>
             </div>
         </div>
 </header>

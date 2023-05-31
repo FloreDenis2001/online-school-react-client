@@ -8,7 +8,7 @@ import RegisterRequest from '../dtos/RegisterRequest';
 
 
 const SingUp: React.FC = () => {
-    let { student, setStudent } = useContext(ContextLogin) as LoginContextType;
+    let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [secondName, setSecondName] = useState("");

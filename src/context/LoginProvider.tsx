@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginContextType from "../models/LoginContextType";
 import { createContext,useState } from "react";
 import Student from "../models/Student";
+import Cookies from "js-cookie";
+import LoginResponse from "../dtos/LoginResponse";
+import StudentLogin from "../dtos/StudentLogin";
 
 type Props = {
     children?: React.ReactNode;
@@ -10,20 +13,26 @@ type Props = {
 export const ContextLogin=createContext<LoginContextType | null >(null);
 
  const LoginProvider :React.FC<Props> = ({children}) =>{
-   const[student,setStudent]=useState<Student>({
+   const[studentLogin,setStudent]=useState<StudentLogin>({
     id:0,
-    age:0,
     email:'NOEMAIL',
+    token:'INVALIDE',
     first_name:'NONAME',
     second_name:'NONAME'
    });
-
-   function seteazaStudent(student:Student):void
+   
+   useEffect(()=>{
+    const authentificatedUser = Cookies.get("authentificatedUser");
+    if(authentificatedUser){
+        setStudent(JSON.parse(authentificatedUser) as StudentLogin);
+    }
+   });
+   function seteazaStudent(studentLogin:StudentLogin):void
    {
-     setStudent(student);
+     setStudent(studentLogin);
    }
 
-   return <ContextLogin.Provider value={{student,setStudent}} >  {children}  </ContextLogin.Provider>
+   return <ContextLogin.Provider value={{studentLogin,setStudent}} >  {children}  </ContextLogin.Provider>
 }
 
 export default LoginProvider

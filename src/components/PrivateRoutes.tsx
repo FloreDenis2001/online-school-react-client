@@ -10,7 +10,7 @@ const PrivateRoutes = () => {
 
 
   return (
-    studentLogin.id!==0? <Outlet/> : <Navigate to='/login'/>
+    studentLogin.studentId!==0? <Outlet/> : <Navigate to='/login'/>
   )
 }
 

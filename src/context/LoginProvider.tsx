@@ -14,11 +14,11 @@ export const ContextLogin=createContext<LoginContextType | null >(null);
 
  const LoginProvider :React.FC<Props> = ({children}) =>{
    const[studentLogin,setStudent]=useState<StudentLogin>({
-    id:0,
+    studentId:0,
     email:'NOEMAIL',
     token:'INVALIDE',
-    first_name:'NONAME',
-    second_name:'NONAME'
+    firstName:'NONAME',
+    lastName:'NONAME'
    });
    
    useEffect(()=>{
@@ -27,6 +27,7 @@ export const ContextLogin=createContext<LoginContextType | null >(null);
         setStudent(JSON.parse(authentificatedUser) as StudentLogin);
     }
    });
+
    function seteazaStudent(studentLogin:StudentLogin):void
    {
      setStudent(studentLogin);

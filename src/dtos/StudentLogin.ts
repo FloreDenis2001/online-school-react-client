@@ -1,7 +1,7 @@
 export default interface StudentLogin {
-    id:number,
+    studentId:number,
     email:string,
     token:string,
-    first_name:string,
-    second_name:string
+    firstName:string,
+    lastName:string
  }

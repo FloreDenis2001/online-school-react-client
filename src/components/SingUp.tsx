@@ -11,14 +11,14 @@ const SingUp: React.FC = () => {
     let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
-    const [secondName, setSecondName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
     const [age, setAge] = useState(0);
 
      let studentService=new StudentService();
 
      let sing = async () =>{
-         let rez= await studentService.singUp({firstName,secondName,age,email,password} as RegisterRequest)
+         let rez= await studentService.singUp({firstName,lastName,age,email,password} as RegisterRequest)
      }
     let navigate = useNavigate();
     
@@ -35,8 +35,8 @@ const SingUp: React.FC = () => {
                     <input type="text" name="txt" placeholder="First name" value={firstName} onChange={(e)=>{
                             setFirstName(e.target.value);
                         }}/>
-                    <input type="text" name="txt" placeholder="Second name" value={secondName} onChange={(e)=>{
-                            setSecondName(e.target.value);
+                    <input type="text" name="txt" placeholder="Last name" value={lastName} onChange={(e)=>{
+                            setLastName(e.target.value);
                         }}/>
                     <input type="number" min="18" max="25" name="txt" placeholder="Age" value={age} onChange={(e)=>{
                             setAge(+e.target.value);

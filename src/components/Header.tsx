@@ -5,7 +5,6 @@ import LoginContextType from '../models/LoginContextType';
 
 const Header:React.FC= () => {
     let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
-    console.log(studentLogin);
   return (
     <header>
     <div className="logo-container">
@@ -25,7 +24,7 @@ const Header:React.FC= () => {
     <div className="auth-container">
             <div className="sign-in">
                 <i className="fa-sharp fa-solid fa-user"></i>
-                <a href="/"> <UserOutlined /></a>
+                <a href="/"> <UserOutlined />  {studentLogin.firstName} {studentLogin.lastName}</a>
             </div>
         </div>
 </header>

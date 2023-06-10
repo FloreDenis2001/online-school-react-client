@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ContextLogin } from '../context/LoginProvider'
 import LoginContextType from '../models/LoginContextType'
 import StudentService from '../services/StudentService';
@@ -28,6 +28,13 @@ const Login: React.FC = () => {
         navigate("/singup");
     }
 
+
+    useEffect(()=>{
+         if(studentLogin!=undefined){
+            navigate(`/home/:studentLogin.studentId`);
+         }
+    });
+
     let onSubmit = async (data: FormData) => {
 
 
@@ -40,9 +47,14 @@ const Login: React.FC = () => {
                 firstName: rez['firstName'],
                 lastName: rez['lastName']
             } as StudentLogin)
-            navigate(`/home/:studentLogin.studentId`);
+
+
+           Cookies.set("authentificatedUser",JSON.stringify(studentLogin));
+           
         } catch (err) {
             let result = (err as Error).message;
+
+
             console.log(result);
         }
     }

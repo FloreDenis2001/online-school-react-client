@@ -17,9 +17,10 @@ class StudentService {
             headers.append("Authentification", `Bearer${token}`);
         }
 
+   
         const options: RequestInit = {
             method,
-            headers: headers,
+            headers,
             body: body == null ? null : JSON.stringify(body),
         };
         return fetch(url, options);

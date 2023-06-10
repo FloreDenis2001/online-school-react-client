@@ -16,11 +16,11 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     allBooks();
-  }, []);
+  },[]);
 
   let allBooks = async (): Promise<void> => {
     try{
-    let booksApi = await bookService.allBooks();
+    let booksApi = await bookService.allBooks(studentLogin.token);
     console.log(booksApi);
     setBooks(booksApi);}catch(err){
       console.log((err as Error).message);

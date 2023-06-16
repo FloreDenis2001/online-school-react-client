@@ -50,7 +50,6 @@ const Home: React.FC = () => {
   let allMyCourses = async (): Promise<void> => {
     try {
       let coursesApi = await courseService.allMyCourses(studentLogin.token);
-      console.log(coursesApi);
       setMyCourses(coursesApi);
     } catch (err) {
       console.log((err as Error).message);

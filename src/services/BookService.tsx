@@ -19,23 +19,33 @@ class BookService {
             body: body == null ? null : JSON.stringify(body),
         };
 
-        console.log(options);
         return fetch(url, options);
     }
 
 
     allBooks = async (token : string): Promise<Book[]> => {
         let books = await this.api<null, Book[]>("/all","GET",null,token);
-        console.log(books);
         if (books.status === 200) {
             let getBooks = await books.json();
             return getBooks;
         } else {
             throw new Error("Nu s-au gasit carti !");
         }
-
-        
     }
+
+    
+    allMyBooks = async (token : string): Promise<Book[]> => {
+        let mybooks = await this.api<null, Book[]>("/all","GET",null,token);
+        if (mybooks.status === 200) {
+            let getMyBooks = await mybooks.json();
+            return getMyBooks;
+        } else {
+            throw new Error("Nu s-au gasit carti !");
+        }
+    }
+    
+
+
 
 
 

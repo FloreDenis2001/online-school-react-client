@@ -5,7 +5,7 @@ export function getStars(book:Book){
     let numberOfStars=book.stars;
     let allStars="";
     for(let i=0;i<numberOfStars;i++){
-     allStars.concat("&#11088;");
+     allStars+="⭐";
     }
    return allStars;
 }

@@ -10,6 +10,8 @@ import LoginProvider from './context/LoginProvider';
 import SingUp from './components/SingUp';
 import PrivateRoutes from './components/PrivateRoutes';
 import FormExample from './components/FormExample';
+import MyCourses from './components/MyCourses';
+import MyBooks from './components/MyBooks';
 
 function App() {
 
@@ -22,7 +24,10 @@ function App() {
           <Routes>
             <Route element={<PrivateRoutes />}>
               <Route path="/home/:studentId" element={<Home/>}/>
+              <Route path='/mycourses/:studentId' element={<MyCourses/>}/>
+              <Route path='/mybooks/:studentId' element={<MyBooks/>}/>
             </Route>
+        
               <Route path='/' element={<Login />} />
               <Route path='/login' element={<Login />} />
               <Route path="/singup" element={<SingUp />} /> 

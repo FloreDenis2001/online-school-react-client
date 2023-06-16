@@ -7,133 +7,94 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
-.login-container {
+.main-login {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
-	font-family: 'Jost', sans-serif;
-	position: relative;
-	background: url("../mockup-react/img/43540.jpg") no-repeat center/cover;
+	height: 100vh;
+	background-color: #f1f1f1;
 }
 
-
-
-.login-container::before {
-	backdrop-filter: blur(3px);
-	content: '';
-	display: block;
-	height: 100%;
-	width: 100%;
-
-
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-
-.main-login {
-	z-index: 1;
-	width: 350px;
-	height: 600px;
-	background: red;
-	overflow: hidden;
-	background: url("../mockup-react/img/43540.jpg") no-repeat center/ cover;
+  .signup form{
+	 min-height: 600px;
+	 align-items: center;
+  }
+  .sing-up{
+	margin-left: 50px;
+  }
+  .login {
+	background-color: #fff;
+	padding: 40px;
 	border-radius: 10px;
-	box-shadow: 5px 20px 50px #000;
-}
-
-#chk {
-	display: none;
-}
-
-.signup {
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-
-label {
-	color: #fff;
-	font-size: 2.3em;
-	justify-content: center;
-	display: flex;
-	margin: 60px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: .5s ease-in-out;
-}
-
-input {
-	width: 60%;
-	height: 20px;
-	background: #e0dede;
-	justify-content: center;
-	display: flex;
-	margin: 20px auto;
-	padding: 10px;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-}
-
-.main-login button {
-	width: 60%;
-	height: 40px;
-	margin: 10px auto;
-	justify-content: center;
-	display: block;
-	color: #ffffff;
-	background: rgb(0, 252, 96);
-	;
-	font-size: 1em;
-	font-weight: bold;
-	margin-top: 20px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	transition: .2s ease-in;
-	cursor: pointer;
-}
-
-.main-login button:hover {
-	background: rgb(0, 252, 96);
-}
-
-.login {
-	height: 650px;
-	background: #eee;
-	border-radius: 60% / 10%;
-	transform: translateY(-130px);
-	transition: .8s ease-in-out;
-}
-
-.login label {
-	color: black;
-	transform: scale(.8);
-	margin: 20px 0px;
-}
-
-#chk:checked~.login {
-	transform: translateY(-540px);
-}
-
-#chk:checked~.login label {
-	transform: scale(1.1);
-}
-
-#chk:checked .signup label {
-	transform: scale(.6);
-}
-
-.login form {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 600px;
+	height: 500px;
+	max-width: 90%;
+  }
+  
+  form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-around;
+	min-height: 400px;
+  }
+  
+  label {
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 2.5em;
+	color: #555;
+  }
+  
+  input {
+	padding: 12px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 350px;
+	font-size: 16px;
+  }
+  
+  button {
+	padding: 12px 20px;
+	background-color: #4caf50;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 50px;
+	width: 150px;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+  }
+  
+  button:hover {
+	background-color: #45a049;
+  }
+  
+  span {
+	color: red;
+	margin-bottom: 10px;
+	font-size: 14px;
+  }
+  
+  .sign-in{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	justify-content: center;
-}
+  }
 
+  .sign-in span{
+	padding: 0px;
+	margin: 0px;
+  }
+
+
+  
 header {
 	margin: 0;
 	padding: 1px;
@@ -150,7 +111,9 @@ header {
 	margin-left: 50px;
 }
 
-
+.course{
+	text-align: center;
+}
 .logo-container {
 	color: whitesmoke;
 	font-family: 'Jost', sans-serif;
@@ -159,6 +122,7 @@ header {
 }
 
 .logo-container p span {
+	font-size: 1em;
 	color: rgb(0, 252, 96);
 }
 

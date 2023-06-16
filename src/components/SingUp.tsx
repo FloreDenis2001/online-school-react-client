@@ -23,7 +23,7 @@ const SingUp: React.FC = () => {
     let navigate = useNavigate();
     
     let goLogin = (): void => {
-        navigate("/");
+        navigate("/login");
     }
     return (
         <main className="sing-up-container">

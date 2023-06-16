@@ -1,5 +1,5 @@
 export default interface Course{
     id:number,
-    departament:string,
+    department:string,
     name:string
 }

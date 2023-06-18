@@ -12,6 +12,7 @@ import PrivateRoutes from './components/PrivateRoutes';
 import FormExample from './components/FormExample';
 import MyCourses from './components/MyCourses';
 import MyBooks from './components/MyBooks';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
               <Route path="/home/:studentId" element={<Home/>}/>
               <Route path='/mycourses/:studentId' element={<MyCourses/>}/>
               <Route path='/mybooks/:studentId' element={<MyBooks/>}/>
+              <Route path='/profile/:studentId' element={<Profile/>}/>
             </Route>
         
               <Route path='/' element={<Login />} />

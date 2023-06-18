@@ -3,6 +3,7 @@ import { ContextLogin } from "../context/LoginProvider";
 import Book from "../models/Book";
 import HttpResponse from "../models/HttpResponse";
 import LoginContextType from "../models/LoginContextType";
+import BookRequest from "../models/BookRequest";
 
 class BookService {
 
@@ -35,7 +36,7 @@ class BookService {
 
     
     allMyBooks = async (token : string): Promise<Book[]> => {
-        let mybooks = await this.api<null, Book[]>("/all","GET",null,token);
+        let mybooks = await this.api<null, Book[]>("/mybooks","GET",null,token);
         if (mybooks.status === 200) {
             let getMyBooks = await mybooks.json();
             return getMyBooks;
@@ -43,9 +44,59 @@ class BookService {
             throw new Error("Nu s-au gasit carti !");
         }
     }
+
+
+   
+
+    deleteBook = async (token:string ,book:Book) => {
+        let data = await this.api<Book,Book>("/removebyid/" + book.id,"DELETE",book,token);
+        try {
+          if (data.status === 200) {
+            return book;
+          } else {
+            throw new Error("Cartea nu exista !");
+          }
+        } catch (e) {
+          return {
+            ...data,
+            message: "Wrong fetch !"
+          }
+        }}
+
+
+
+        updateBook = async (token:string ,book:Book) => {
+          let data = await this.api<Book,Book>("/update","PUT",book,token);
+          try {
+            if (data.status === 200) {
+              return book;
+            } else {
+              throw new Error("Cartea nu exista !");
+            }
+          } catch (e) {
+            return {
+              ...data,
+              message: "Wrong fetch !"
+            }
+          }}
+
+
+          addBook = async (token:string ,book:BookRequest) => {
+            let data = await this.api<BookRequest,BookRequest>("/addBook","POST",book,token);
+            try {
+              if (data.status === 200) {
+                return book;
+              } else {
+                throw new Error("Cartea exista deja !");
+              }
+            } catch (e) {
+              return {
+                ...data,
+                message: "Wrong fetch !"
+              }
+            }}
+          
     
-
-
 
 
 

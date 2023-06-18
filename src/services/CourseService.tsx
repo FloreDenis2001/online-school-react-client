@@ -32,7 +32,6 @@ class CourseService {
 
     allMyCourses = async (token : string): Promise<Course[]> => {
         let mycourses = await this.api<null, Course[]>("/my/courses","GET",null,token);
-        console.log(mycourses);
         if (mycourses.status === 200) {
             let getMyCourses = await mycourses.json();
             return getMyCourses;

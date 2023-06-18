@@ -8,10 +8,10 @@ const Header: React.FC = () => {
   const { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
   const navigate = useNavigate();
 
-  const handleNavigation = (path: string) => {
+  const handleNavigation = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    event.preventDefault();
     if (studentLogin !== undefined) {
-    console.log(path);
-      navigate(path.replace(':studentId', studentLogin.studentId.toString()));
+      navigate(path);
     }
   };
 
@@ -25,17 +25,17 @@ const Header: React.FC = () => {
         <nav className="nav-bar">
           <ul>
             <li>
-              <a href="/" onClick={() => handleNavigation('/home/:studentId')}>
+              <a href="/" onClick={(event) => handleNavigation(event, '/home/:studentId')}>
                 Home
               </a>
             </li>
             <li>
-              <a href="/" onClick={() => handleNavigation('/mybooks/:studentId')}>
+              <a href="/" onClick={(event) => handleNavigation(event, '/mybooks/:studentId')}>
                 My Books
               </a>
             </li>
             <li>
-              <a href="/" onClick={() => handleNavigation('/mycourses/:studentId')}>
+              <a href="/" onClick={(event) => handleNavigation(event, '/mycourses/:studentId')}>
                 My Courses
               </a>
             </li>
@@ -46,7 +46,7 @@ const Header: React.FC = () => {
       <div className="auth-container">
         <div className="sign-in">
           <UserOutlined />
-          <a href="/">{studentLogin?.firstName} {studentLogin?.lastName}</a>
+          <span onClick={()=>(navigate('/profile/:studentId'))}>{studentLogin?.firstName} {studentLogin?.lastName}</span>
         </div>
       </div>
     </header>

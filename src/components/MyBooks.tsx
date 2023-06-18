@@ -16,46 +16,35 @@ const MyBooks: React.FC = () => {
 
   let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
   let bookService = new BookService();
-  let [mycourses, setMyCourses] = useState(Array<Course>);
-  let courseService = new CourseService();
-  
+  let [mybooks, setMyBooks] = useState(Array<Book>);
 
 
   useEffect(() => {
-    allMyCourses();
+    allMyBooks();
   }, []);
 
-
-
-
-  let allMyCourses = async (): Promise<void> => {
+  let allMyBooks= async (): Promise<void> => {
     try {
-      let coursesApi = await courseService.allMyCourses(studentLogin.token);
-      console.log(coursesApi);
-      setMyCourses(coursesApi);
+      let coursesApi = await bookService.allMyBooks(studentLogin.token);
+      setMyBooks(coursesApi);
     } catch (err) {
       console.log((err as Error).message);
     }
   }
 
-
   return (
     <>
-
       <Header />
 
       <main>
         <div className="all-learnings">
-
           { 
-            mycourses.map(mycourse => {
-              return <CourseComp course={mycourse} />
+            mybooks.map(mybooks => {
+              return <BookComp book={mybooks}/>
             })
           }
         </div>
-
       </main>
-
       <Footer />
 
     </>

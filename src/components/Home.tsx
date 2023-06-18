@@ -17,15 +17,15 @@ const Home: React.FC = () => {
   let { studentLogin, setStudent } = useContext(ContextLogin) as LoginContextType;
   let [books, setBooks] = useState(Array<Book>);
   let bookService = new BookService();
-  // let [courses, setCourses] = useState(Array<Course>);
-  let [mycourses, setMyCourses] = useState(Array<Course>);
+  let [courses, setCourses] = useState(Array<Course>);
+
   let courseService = new CourseService();
   
 
 
   useEffect(() => {
     allBooks();
-    allMyCourses();
+    allCourses();
   }, []);
 
   let allBooks = async (): Promise<void> => {
@@ -37,24 +37,15 @@ const Home: React.FC = () => {
     }
   }
 
-  // let allCourses = async (): Promise<void> => {
-  //   try {
-  //     let coursesApi = await courseService.allCourses(studentLogin.token);
-  //     console.log(coursesApi);
-  //     setCourses(coursesApi);
-  //   } catch (err) {
-  //     console.log((err as Error).message);
-  //   }
-  // }
-
-  let allMyCourses = async (): Promise<void> => {
+  let allCourses = async (): Promise<void> => {
     try {
-      let coursesApi = await courseService.allMyCourses(studentLogin.token);
-      setMyCourses(coursesApi);
+      let coursesApi = await courseService.allCourses(studentLogin.token);
+      setCourses(coursesApi);
     } catch (err) {
       console.log((err as Error).message);
     }
   }
+
 
 
   return (
@@ -71,8 +62,8 @@ const Home: React.FC = () => {
           }
 
           { 
-            mycourses.map(mycourse => {
-              return <CourseComp course={mycourse} />
+            courses.map(courses => {
+              return <CourseComp course={courses} />
             })
           }
         </div>

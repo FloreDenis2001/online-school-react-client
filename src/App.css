@@ -75,11 +75,7 @@ body {
 	background-color: #45a049;
   }
   
-  span {
-	color: red;
-	margin-bottom: 10px;
-	font-size: 14px;
-  }
+
   
   .sign-in{
 	display: flex;
@@ -93,7 +89,9 @@ body {
 	margin: 0px;
   }
 
-
+span:HOVER{
+	color: #4caf50;
+}
   
 header {
 	margin: 0;
@@ -146,6 +144,7 @@ header {
 	list-style: none;
 	margin-right: 25px;
 }
+
 
 .nav-bar ul li a {
 	text-decoration: none;
@@ -226,7 +225,7 @@ header {
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin: 20px 40px;
-	height: 110vh;
+	height: auto;
 	justify-content: space-around;
 }
 
@@ -294,10 +293,109 @@ main {
 	padding: 1px;
 	padding-bottom: 10px;
 	background-color: rgba(0, 0, 0, 0.945);
-	height: 200vh;
+	height: auto;
+	min-height: 90vh;
 }
 
 .setting-icon{
 	color: white;
 	font-size: 1.5em;
 }
+.modal-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.959);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .modal-content {
+	padding: 20px;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+  .modal-content input{
+	margin-top: 20px;
+  }
+  
+  .modal-buttons {
+	margin-top: 20px;
+	align-items: center;
+  }
+  
+  .save-button {
+	margin-right: 10px;
+	background-color: #4caf50;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  .cancel-button {
+	background-color: #ccc;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  .icon-book , .icon-course{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	
+  }
+
+  .icon-book p,.icon-course p{
+	padding-inline: 25px;
+	
+  }
+
+  .profile-img{
+	width: 250px;
+	height: 200px;
+	border-radius: 100%;
+  }
+
+  .profile{
+	background-color: rgba(0, 0, 0, 0.945);
+	height: 90vh;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	align-items: center;
+	justify-content: center;
+  }
+
+  .avatar{
+	height: 200px;
+    padding-top:20px;
+  }
+
+  .details{
+	color: white;
+	text-align: center;
+  }
+  .modal-content label{
+	color: white;
+	margin: 0px;
+	font-size: 2em;
+  }
+
+  .modal-content h2{
+	color: white;
+	font-size: 3em;
+	margin-bottom: 20px;
+  }
